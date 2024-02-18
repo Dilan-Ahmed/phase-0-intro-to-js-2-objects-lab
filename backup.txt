@@ -1,0 +1,54 @@
+// Write your solution in this file!
+const employee = {
+  name: `Dylan`,
+  streetAddress: "12 Kwestan",
+};
+
+let newEmployee = { ...employee };
+//Non-Destructive Operation
+
+function updateEmployeeWithKeyAndValue(obj, key, value) {
+  obj[key] = value;
+  return obj;
+}
+updateEmployeeWithKeyAndValue(newEmployee, `name`, "Sam");
+updateEmployeeWithKeyAndValue(newEmployee, "streetAddress", "11 Broadway");
+
+console.log(newEmployee);
+
+// destructive operation
+
+function destructivelyUpdateEmployeeWithKeyAndValue(obj, key, value) {
+  obj[key] = value;
+  return obj;
+}
+
+destructivelyUpdateEmployeeWithKeyAndValue(
+  employee,
+  "streetAddress",
+  "12 Broadway"
+);
+
+console.log(employee);
+
+//Non-destructive operation
+
+function deleteFromEmployeeByKey(name) {
+  delete newEmployee[name];
+  console.log(typeof newEmployee);
+}
+
+deleteFromEmployeeByKey(`name`);
+
+console.log(newEmployee);
+console.log(newEmployee.name);
+
+// destructive operation
+
+function destructivelyDeleteFromEmployeeByKey(obj, name) {
+  delete obj[name];
+  console.log(typeof obj);
+}
+
+destructivelyDeleteFromEmployeeByKey(employee, `name`);
+console.log(employee);
